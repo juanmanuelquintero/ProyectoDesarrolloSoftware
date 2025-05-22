@@ -1,0 +1,150 @@
+.contenedor1PaginaPrincipal {
+    width: 800px;
+    height: 600px;
+    background-color: white;
+    box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.6);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.contenedor3PaginaPrincipal {
+    width: 100vw;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.3);
+}
+
+.contenedor4PaginaPrincipal {
+    width: 300px;
+    height: 60px;
+    background-color: #e9cbaf;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    text-align: center;
+}
+.contenedor4PaginaPrincipal:hover {
+    background-color: rgba(255, 255, 255, 0.577);
+}
+
+.contenedor2PaginaPrincipal {
+    background-color: #edd0b3;
+    box-shadow: 0px 0px 22px rgb(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 90px;
+    box-sizing: border-box;
+
+}
+
+.labelPaginaPrincipal {
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.label2PaginaPrincipal {
+    font-weight: bold;
+    font-family: Arial;
+    animation: Label 3s ease;
+}
+
+@keyframes Label {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.imagenPaginaPrincipal{
+    animation: Perusoft 3s infinite ;
+}
+
+@keyframes Perusoft {
+    0% {
+        filter: none;
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 20px rgb(255, 0, 0));
+    }
+    
+    100% {
+        filter: none;
+    }
+}
+
+.imagen2PaginaPrincipal{
+    transition: all 0.3s ease;
+}
+.imagen2PaginaPrincipal:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.contenedorINF-2PaginaPrincipal{
+    position: absolute;
+    top: 3%;
+    left: 60%;
+    width: 300px;
+    height: 250px;
+    background-color: #e9cbaf;
+    box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.6);
+    border-radius: 18px;
+    overflow: hidden;
+    animation: INF 2s ease;
+    z-index: 1;
+}
+
+.contenedorINFPaginaPrincipal{
+    position: absolute;
+    top: 4%;
+    left: 90%;
+    width: 50px;
+    height: 50px;
+    background-color: #edd0b3;
+    overflow: hidden;
+}
+
+@keyframes INF {
+    0% {
+        position: absolute;
+        top: 4%;
+        left: 90%;
+        width: 50px;
+        height: 50px;
+        background-color: #edd0b3;
+    }
+
+    100% {
+        position: absolute;
+        top: 3%;
+        left: 60%;
+        width: 300px;
+        height: 250px;
+        background-color: #e9cbaf;
+        box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.6);
+    }
+    
+}
+
+.none {
+    display: none;
+}
+
+.botonPaginaPrincipal {
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: #c2a98db5;
+    border: #beaa94 5px solid;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.botonPaginaPrincipal:hover {
+    transform: scale(1.1);
+    background-color: #a58d72b5;
+    border: #a08f7d 5px solid;
+}
