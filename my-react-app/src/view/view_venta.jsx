@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./venta.css";
+import "./css/venta.css";
+import { useLocation } from "react-router-dom";
 
 function Venta() {
   const [codigo, setCodigo] = useState("");
+  const [codigoCliente, setCodigoCliente] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [precioU, setPrecioU] = useState("");
   const [subtotal, setSubtotal] = useState(0);
@@ -11,7 +13,10 @@ function Venta() {
   const [lista1, setLista1] = useState([]);
   const [lista2, setLista2] = useState([]);
   const [lista3, setLista3] = useState([]);
+  const [deshabilitado, setDeshabilitado] = useState(true);
   const [IDventa, setIDventa] = useState(0);
+  const { state } = useLocation();
+  const { usuario } = state;
 
   useEffect(() => {
     TraerIDultimaVenta();
@@ -53,7 +58,7 @@ function Venta() {
           alert("error");
         });
     } else {
-      alert("no se encontro el codigo");
+      alert("llene los campos");
     }
   }
 
@@ -85,18 +90,39 @@ function Venta() {
       });
   }
 
+  function Registrar() {
+    axios
+      .post("http://127.0.0.1:8000/api/ventas/", {
+        id_cliente: codigoCliente,
+        id_empleado: usuario.codigo,
+        total_venta: total,
+      })
+      .then(() => {
+        alert("venta realizada");
+        TraerIDultimaVenta();
+      })
+      .catch((Error) => {
+        console.log(Error);
+      });
+  }
+
   function Añadir() {
-    const productoCantidad = {
-      id_producto: lista1,
-      id_venta: IDventa,
-      cantidad: parseFloat(cantidad),
-      subtotal: subtotal,
-    };
-    setLista2([...lista2, subtotal]);
-    setLista3([...lista3, productoCantidad]);
-    setCodigo("");
-    setCantidad(0);
-    setPrecioU("");
+    if (codigo && codigoCliente) {
+      const productoCantidad = {
+        id_producto: lista1,
+        id_venta: IDventa,
+        cantidad: parseFloat(cantidad),
+        subtotal: subtotal,
+      };
+      setDeshabilitado(false);
+      setLista2([...lista2, subtotal]);
+      setLista3([...lista3, productoCantidad]);
+      setCodigo("");
+      setCantidad(0);
+      setPrecioU("");
+    } else {
+      alert("llene todos los campos");
+    }
   }
 
   return (
@@ -105,12 +131,20 @@ function Venta() {
       style={{ position: "absolute", top: "5%", left: "15%" }}
     >
       <input
+        placeholder="Codigo Cliente"
+        className="inputVenta"
+        value={codigoCliente}
+        onChange={(e) => setCodigoCliente(e.target.value)}
+        type="number"
+        style={{ position: "absolute", top: "8%", left: "2%" }}
+      ></input>
+      <input
         className="inputVenta"
         type="number"
         value={codigo}
         onChange={(e) => setCodigo(e.target.value)}
         placeholder="Codigo"
-        style={{ position: "absolute", top: "8%", left: "2%" }}
+        style={{ position: "absolute", top: "23%", left: "2%" }}
       />
       <input
         className="inputVenta"
@@ -118,7 +152,7 @@ function Venta() {
         value={cantidad}
         onChange={(e) => setCantidad(e.target.value)}
         placeholder="Cantidad"
-        style={{ position: "absolute", top: "23%", left: "2%" }}
+        style={{ position: "absolute", top: "38%", left: "2%" }}
       />
       <input
         className="inputVenta"
@@ -126,7 +160,7 @@ function Venta() {
         value={precioU}
         onChange={(e) => setPrecioU(e.target.value)}
         placeholder="Precio U"
-        style={{ position: "absolute", top: "38%", left: "2%" }}
+        style={{ position: "absolute", top: "53%", left: "2%" }}
       />
       <input
         className="inputVenta"
@@ -151,6 +185,8 @@ function Venta() {
         style={{ position: "absolute", top: "8%", left: "40%" }}
       />
       <button
+        onClick={Registrar}
+        disabled={deshabilitado}
         className="botonVenta"
         style={{
           position: "absolute",

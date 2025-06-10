@@ -3,6 +3,7 @@ from .models import Producto
 from .models import Empleado
 from .models import Ventas
 from .models import DetalleVenta
+from .models import Cliente
 
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,4 +23,9 @@ class VentasSerializer(serializers.ModelSerializer):
 class DetalleVentaSerializer(serializers.ModelSerializer):
     class Meta:
         model = DetalleVenta
+        fields = '__all__'
+
+class ClienteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cliente
         fields = '__all__'

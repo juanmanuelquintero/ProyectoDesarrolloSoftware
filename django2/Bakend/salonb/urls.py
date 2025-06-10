@@ -4,12 +4,14 @@ from .views import ProductoViewSet
 from .views import EmpleadoViewSet
 from .views import VentasViewSet
 from .views import DetalleVentaViewSet
+from .views import ClienteViewSet
 
 router = DefaultRouter()
 router.register(r'productos', ProductoViewSet, basename='productos')
 router.register(r'empleados', EmpleadoViewSet, basename='empleados')
 router.register(r'ventas', VentasViewSet, basename='ventas')
 router.register(r'detalleVenta', DetalleVentaViewSet, basename='detalleVenta')
+router.register(r'cliente', ClienteViewSet, basename='cliente')
 
 
 urlpatterns = [

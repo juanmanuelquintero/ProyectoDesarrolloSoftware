@@ -7,6 +7,8 @@ from .models import Ventas
 from .serializers import VentasSerializer
 from .models import DetalleVenta
 from .serializers import DetalleVentaSerializer
+from .models import Cliente
+from .serializers import ClienteSerializer
 
 class ProductoViewSet(viewsets.ModelViewSet):
     serializer_class = ProductoSerializer
@@ -60,5 +62,17 @@ class DetalleVentaViewSet(viewsets.ModelViewSet):
 
         if id_detalle_venta:
             queryset = queryset.filter(id_detalle_venta=id_detalle_venta)
+        
+        return queryset
+
+class ClienteViewSet(viewsets.ModelViewSet):
+    serializer_class = ClienteSerializer
+
+    def get_queryset(self):
+        queryset = Cliente.objects.all()
+        id_cliente = self.request.query_params.get('id_cliente')
+
+        if id_cliente:
+            queryset = queryset.filter(id_cliente=id_cliente)
         
         return queryset
