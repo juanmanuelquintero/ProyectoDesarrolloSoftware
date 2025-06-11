@@ -20,34 +20,34 @@ ChartJS.register(
   Legend
 );
 
-export default function GraficoVentas() {
-  const [ventasPorEmpleado, setVentasPorEmpleado] = useState({});
+export default function GraficoDetalleVentas() {
+  const [ProductoMasVendido, setProductoMasVendido] = useState({});
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/ventas/")
+      .get("http://localhost:8000/api/detalleVenta/")
       .then((res) => {
         const ventas = res.data;
 
         // Agrupar por id_empleado
         const conteo = {};
         ventas.forEach((v) => {
-          const id = v.id_empleado;
+          const id = v.id_producto;
           conteo[id] = (conteo[id] || 0) + 1;
         });
 
-        setVentasPorEmpleado(conteo);
+        setProductoMasVendido(conteo);
       })
-      .catch((err) => console.error("Error cargando ventas:", err));
+      .catch((err) => console.error("Error cargando Productos:", err));
   }, []);
 
-  const labels = Object.keys(ventasPorEmpleado);
+  const labels = Object.keys(ProductoMasVendido);
   const data = {
     labels,
     datasets: [
       {
-        label: "Cantidad de ventas por empleado",
-        data: Object.values(ventasPorEmpleado),
+        label: "Producto mas vendido",
+        data: Object.values(ProductoMasVendido),
         backgroundColor: "rgba(227, 183, 137, 0.9)",
       },
     ],
@@ -57,7 +57,7 @@ export default function GraficoVentas() {
     responsive: true,
     plugins: {
       legend: { position: "top" },
-      title: { display: true, text: "Ventas por Empleado" },
+      title: { display: true, text: "Productos" },
     },
   };
 

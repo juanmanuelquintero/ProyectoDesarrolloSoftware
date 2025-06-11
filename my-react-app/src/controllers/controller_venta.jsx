@@ -49,6 +49,7 @@ export function RegistrarDetalleP({ datos }) {
 
 export function Registrar({
   codigoCliente,
+  codigo,
   usuario,
   total,
   setIDventa,
@@ -63,6 +64,7 @@ export function Registrar({
     .then(() => {
       alert("venta realizada");
       TraerIDultimaVenta({ setIDventa });
+
       setLista3([]);
     })
     .catch((Error) => {

@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./css/paginaPrincipal.css";
 import { Navegar, NavegarV, Inf } from "../controllers/controller_pgPrincipal";
-import GraficoVentas from "../controllers/controller_dashboard";
+import GraficoDetalleVentas from "../controllers/controller_dashboard2";
 
 function Pg_principal() {
   const [inf, setInf] = useState(false);
@@ -118,7 +118,7 @@ function Pg_principal() {
             height: "400px",
           }}
         >
-          <GraficoVentas />
+          <GraficoDetalleVentas />
         </div>
       </div>
     </div>

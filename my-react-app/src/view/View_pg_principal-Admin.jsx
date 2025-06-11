@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import "./css/paginaPrincipal-Admin.css";
 import { Navegar, NavegarV, Inf } from "../controllers/controller_pgAdmin";
 import GraficoVentas from "../controllers/controller_dashboard";
+import GraficoDetalleVentas from "../controllers/controller_dashboard2";
 
 function Pg_principalAdmin() {
   const [inf, setInf] = useState(false);
   const { state } = useLocation();
   const { usuario } = state;
+  const Titulo = "Pagina \nprincipal";
   const navigate = useNavigate();
 
   return (
@@ -17,6 +19,18 @@ function Pg_principalAdmin() {
         className="imagenLogin"
         style={{ position: "absolute", top: "5%", left: "84%" }}
       />
+      <pre
+        className="labelPaginaPrincipal"
+        style={{
+          position: "absolute",
+          top: "75%",
+          left: "82%",
+          fontSize: "50px",
+          color: "rgb(146, 121, 90)",
+        }}
+      >
+        {Titulo}
+      </pre>
       <div
         className="contenedor1PaginaPrincipal"
         style={{ position: "absolute", top: "10%", left: "25%" }}
@@ -91,12 +105,18 @@ function Pg_principalAdmin() {
           />
         </div>
         <button
+          onClick={() => {
+            Navegar({ navigate, navega: "/empleados" });
+          }}
           className="botonPaginaPrincipal"
           style={{ position: "absolute", top: "50%", left: "25%" }}
         >
           Empleado
         </button>
         <button
+          onClick={() => {
+            Navegar({ navigate, navega: "/clientes" });
+          }}
           className="botonPaginaPrincipal"
           style={{ position: "absolute", top: "50%", left: "55%" }}
         >
@@ -120,18 +140,6 @@ function Pg_principalAdmin() {
         >
           Venta
         </button>
-        <label
-          className="labelPaginaPrincipal"
-          style={{
-            position: "absolute",
-            top: "75%",
-            left: "72%",
-            fontSize: "50px",
-            color: "rgb(146, 121, 90)",
-          }}
-        >
-          Pagina principal
-        </label>
         <div
           style={{
             position: "absolute",
@@ -142,6 +150,17 @@ function Pg_principalAdmin() {
           }}
         >
           <GraficoVentas />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "65%",
+            left: "50%",
+            width: "360px",
+            height: "400px",
+          }}
+        >
+          <GraficoDetalleVentas />
         </div>
       </div>
     </div>

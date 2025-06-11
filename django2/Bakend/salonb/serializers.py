@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Producto
-from .models import Empleado
-from .models import Ventas
-from .models import DetalleVenta
-from .models import Cliente
+from .models.models_Productos import Producto
+from .models.models_Empleado import Empleado
+from .models.models_Ventas import Ventas
+from .models.models_DetalleVenta import DetalleVenta
+from .models.models_Cliente import Cliente
 
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
