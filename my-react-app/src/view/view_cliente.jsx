@@ -6,6 +6,7 @@ import {
   Llenartabla,
   EliminarCliente,
   ModificarCliente,
+  Limpiar,
 } from "../controllers/controller_cliente";
 
 function Cliente() {
@@ -80,18 +81,6 @@ function Cliente() {
         style={{ position: "absolute", top: "23%", left: "25%" }}
       />
       <button
-        className="botonCliente"
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "55%",
-          backgroundColor: "rgba(110, 255, 62, 0.68)",
-          border: "rgb(64, 255, 0) 4px solid",
-        }}
-      >
-        Nuevo
-      </button>
-      <button
         onClick={() => {
           AñadirCliente({
             codigoE,
@@ -102,17 +91,25 @@ function Cliente() {
             telefono1,
             telefono2,
             setTabla,
+            setCodigoE,
+            setNombre1,
+            setNombre2,
+            setApellido1,
+            setApellido2,
+            setTelefono1,
+            setTelefono2,
           });
         }}
+        className="botonCliente"
         style={{
           position: "absolute",
           top: "10%",
-          left: "65%",
-          backgroundColor: "rgba(255, 138, 251, 0.67)",
-          border: "rgb(255, 0, 247) 4px solid",
+          left: "55%",
+          backgroundColor: "rgba(110, 255, 62, 0.68)",
+          border: "rgb(64, 255, 0) 4px solid",
         }}
       >
-        Añadir
+        Nuevo
       </button>
       <button
         className="botonCliente"
@@ -148,6 +145,13 @@ function Cliente() {
             telefono1,
             telefono2,
             setTabla,
+            setCodigoE,
+            setNombre1,
+            setNombre2,
+            setApellido1,
+            setApellido2,
+            setTelefono1,
+            setTelefono2,
           });
         }}
         className="botonCliente"
@@ -163,7 +167,17 @@ function Cliente() {
       </button>
       <button
         onClick={() => {
-          EliminarCliente({ codigoE });
+          EliminarCliente({
+            codigoE,
+            setTabla,
+            setCodigoE,
+            setNombre1,
+            setNombre2,
+            setApellido1,
+            setApellido2,
+            setTelefono1,
+            setTelefono2,
+          });
         }}
         className="botonCliente"
         style={{
@@ -177,6 +191,17 @@ function Cliente() {
         Eliminar
       </button>
       <img
+        onClick={() => {
+          Limpiar({
+            setCodigoE,
+            setNombre1,
+            setNombre2,
+            setApellido1,
+            setApellido2,
+            setTelefono1,
+            setTelefono2,
+          });
+        }}
         className="imagenRefrescar"
         src="./actualizar.png"
         style={{

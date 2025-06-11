@@ -23,14 +23,14 @@ function Pg_principal() {
       >
         <div className="contenedor2PaginaPrincipal">
           <img
-            src="./perusoft.png"
+            src="./logoP.png"
             className="imagenPaginaPrincipal"
             style={{
               position: "absolute",
-              top: "4%",
-              left: "45%",
-              width: "80px",
-              height: "50px",
+              top: "1%",
+              left: "43%",
+              width: "100px",
+              height: "80px",
             }}
           />
           <label

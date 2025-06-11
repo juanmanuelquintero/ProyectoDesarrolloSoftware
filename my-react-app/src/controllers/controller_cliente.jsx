@@ -1,5 +1,23 @@
 import axios from "axios";
 
+export function Limpiar({
+  setCodigoE,
+  setNombre1,
+  setNombre2,
+  setApellido1,
+  setApellido2,
+  setTelefono1,
+  setTelefono2,
+}) {
+  setCodigoE("");
+  setNombre1("");
+  setNombre2("");
+  setApellido1("");
+  setApellido2("");
+  setTelefono1("");
+  setTelefono2("");
+}
+
 export function Buscar({
   codigoE,
   setNombre1,
@@ -50,6 +68,13 @@ export function AñadirCliente({
   telefono1,
   telefono2,
   setTabla,
+  setCodigoE,
+  setNombre1,
+  setNombre2,
+  setApellido1,
+  setApellido2,
+  setTelefono1,
+  setTelefono2,
 }) {
   if (codigoE && nombre1 && apellido1 && telefono1) {
     axios
@@ -65,6 +90,13 @@ export function AñadirCliente({
       .then(() => {
         alert("cliente creado");
         Llenartabla({ setTabla });
+        setCodigoE("");
+        setNombre1("");
+        setNombre2("");
+        setApellido1("");
+        setApellido2("");
+        setTelefono1("");
+        setTelefono2("");
       })
       .catch((Error) => {
         alert("error");
@@ -73,13 +105,30 @@ export function AñadirCliente({
   }
 }
 
-export function EliminarCliente({ codigoE, setTabla }) {
+export function EliminarCliente({
+  codigoE,
+  setTabla,
+  setCodigoE,
+  setNombre1,
+  setNombre2,
+  setApellido1,
+  setApellido2,
+  setTelefono1,
+  setTelefono2,
+}) {
   if (codigoE) {
     axios
       .delete(`http://127.0.0.1:8000/api/cliente/${codigoE}/`)
       .then(() => {
         alert("cliente eliminado");
         Llenartabla({ setTabla });
+        setCodigoE("");
+        setNombre1("");
+        setNombre2("");
+        setApellido1("");
+        setApellido2("");
+        setTelefono1("");
+        setTelefono2("");
       })
       .catch((Error) => {
         alert("error");
@@ -97,6 +146,13 @@ export function ModificarCliente({
   telefono1,
   telefono2,
   setTabla,
+  setCodigoE,
+  setNombre1,
+  setNombre2,
+  setApellido1,
+  setApellido2,
+  setTelefono1,
+  setTelefono2,
 }) {
   axios
     .patch(`http://127.0.0.1:8000/api/cliente/${codigoE}/`, {
@@ -110,6 +166,13 @@ export function ModificarCliente({
     .then(() => {
       alert("cliente modificado");
       Llenartabla({ setTabla });
+      setCodigoE("");
+      setNombre1("");
+      setNombre2("");
+      setApellido1("");
+      setApellido2("");
+      setTelefono1("");
+      setTelefono2("");
     })
     .catch((Error) => {
       console.log(Error);

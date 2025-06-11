@@ -127,18 +127,6 @@ function Empleado() {
         style={{ position: "absolute", top: "53%", left: "25%" }}
       />
       <button
-        className="botonEmpleado"
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "55%",
-          backgroundColor: "rgba(110, 255, 62, 0.68)",
-          border: "rgb(64, 255, 0) 4px solid",
-        }}
-      >
-        Nuevo
-      </button>
-      <button
         onClick={() => {
           AñadirEmpleado({
             codigoE,
@@ -153,17 +141,27 @@ function Empleado() {
             direccion,
             cargo,
             contraseña,
+            setNombre1,
+            setNombre2,
+            setApellido1,
+            setApellido2,
+            setTelefono1,
+            setTelefono2,
+            setEmail,
+            setDireccion,
+            setContraseña,
           });
         }}
+        className="botonEmpleado"
         style={{
           position: "absolute",
           top: "10%",
-          left: "65%",
-          backgroundColor: "rgba(255, 138, 251, 0.67)",
-          border: "rgb(255, 0, 247) 4px solid",
+          left: "55%",
+          backgroundColor: "rgba(110, 255, 62, 0.68)",
+          border: "rgb(64, 255, 0) 4px solid",
         }}
       >
-        Añadir
+        Nuevo
       </button>
       <button
         className="botonEmpleado"
@@ -207,6 +205,15 @@ function Empleado() {
             direccion,
             cargo,
             contraseña,
+            setNombre1,
+            setNombre2,
+            setApellido1,
+            setApellido2,
+            setTelefono1,
+            setTelefono2,
+            setEmail,
+            setDireccion,
+            setContraseña,
           });
         }}
         className="botonEmpleado"
@@ -222,7 +229,19 @@ function Empleado() {
       </button>
       <button
         onClick={() => {
-          EliminarEmpleado({ codigoE });
+          EliminarEmpleado({
+            codigoE,
+            setTabla,
+            setNombre1,
+            setNombre2,
+            setApellido1,
+            setApellido2,
+            setTelefono1,
+            setTelefono2,
+            setEmail,
+            setDireccion,
+            setContraseña,
+          });
         }}
         className="botonEmpleado"
         style={{

@@ -84,6 +84,15 @@ export function AñadirEmpleado({
   direccion,
   cargo,
   contraseña,
+  setNombre1,
+  setNombre2,
+  setApellido1,
+  setApellido2,
+  setTelefono1,
+  setTelefono2,
+  setEmail,
+  setDireccion,
+  setContraseña,
 }) {
   if (
     codigoE &&
@@ -112,29 +121,50 @@ export function AñadirEmpleado({
       .then(() => {
         alert("Empleado creado");
         Llenartabla({ setTabla });
+        setNombre1("");
+        setNombre2("");
+        setApellido1("");
+        setApellido2("");
+        setTelefono1("");
+        setTelefono2("");
+        setEmail("");
+        setDireccion("");
+        setContraseña("");
       })
       .catch((error) => {
-        if (error.response) {
-          console.error("Detalles del error:", error.response.data);
-          alert(
-            "Error al añadir empleado ❌:\n" +
-              JSON.stringify(error.response.data, null, 2)
-          );
-        } else {
-          console.error("Error inesperado:", error.message);
-          alert("Error inesperado al añadir empleado");
-        }
+        console.error("Detalles del error:", error);
       });
   }
 }
 
-export function EliminarEmpleado({ codigoE, setTabla }) {
+export function EliminarEmpleado({
+  codigoE,
+  setTabla,
+  setNombre1,
+  setNombre2,
+  setApellido1,
+  setApellido2,
+  setTelefono1,
+  setTelefono2,
+  setEmail,
+  setDireccion,
+  setContraseña,
+}) {
   if (codigoE) {
     axios
       .delete(`http://127.0.0.1:8000/api/empleados/${codigoE}/`)
       .then(() => {
         alert("Empleado eliminado");
         Llenartabla({ setTabla });
+        setNombre1("");
+        setNombre2("");
+        setApellido1("");
+        setApellido2("");
+        setTelefono1("");
+        setTelefono2("");
+        setEmail("");
+        setDireccion("");
+        setContraseña("");
       })
       .catch((Error) => {
         alert("error");
@@ -156,6 +186,15 @@ export function ModificarEmpleado({
   direccion,
   cargo,
   contraseña,
+  setNombre1,
+  setNombre2,
+  setApellido1,
+  setApellido2,
+  setTelefono1,
+  setTelefono2,
+  setEmail,
+  setDireccion,
+  setContraseña,
 }) {
   axios
     .patch(`http://127.0.0.1:8000/api/empleados/${codigoE}/`, {
@@ -173,6 +212,15 @@ export function ModificarEmpleado({
     .then(() => {
       alert("Empleado modificado");
       Llenartabla({ setTabla });
+      setNombre1("");
+      setNombre2("");
+      setApellido1("");
+      setApellido2("");
+      setTelefono1("");
+      setTelefono2("");
+      setEmail("");
+      setDireccion("");
+      setContraseña("");
     })
     .catch((Error) => {
       console.log(Error);
