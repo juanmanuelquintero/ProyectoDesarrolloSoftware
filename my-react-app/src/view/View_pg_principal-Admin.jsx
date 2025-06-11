@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./css/paginaPrincipal-Admin.css";
 import { Navegar, NavegarV, Inf } from "../controllers/controller_pgAdmin";
+import GraficoVentas from "../controllers/controller_dashboard";
 
 function Pg_principalAdmin() {
   const [inf, setInf] = useState(false);
@@ -131,6 +132,17 @@ function Pg_principalAdmin() {
         >
           Pagina principal
         </label>
+        <div
+          style={{
+            position: "absolute",
+            top: "65%",
+            left: "2%",
+            width: "400px",
+            height: "400px",
+          }}
+        >
+          <GraficoVentas />
+        </div>
       </div>
     </div>
   );
